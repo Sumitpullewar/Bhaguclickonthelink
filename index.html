@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Valentine Proposal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 20px;
+      background-color: #ffe6f0;
+      background-image: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 40px,
+        rgba(255, 192, 203, 0.2) 40px,
+        rgba(255, 192, 203, 0.2) 80px
+      );
+    }
+    h1 {
+      color: #d6336c;
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+    .button {
+      display: inline-block;
+      padding: 12px 24px;
+      margin: 10px;
+      font-size: 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      border: none;
+    }
+    .yes {
+      background-color: #ff4d6d;
+      color: white;
+    }
+    .no {
+      background-color: #ccc;
+      color: #666;
+      position: relative;
+    }
+    #message {
+      margin-top: 30px;
+      font-size: 18px;
+      color: #d6336c;
+      font-weight: bold;
+      display: none;
+      white-space: pre-line;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    /* Add pink double heart emoji background */
+    body::before {
+      content: "💞 💞 💞 💞 💞 💞 💞 💞";
+      font-size: 40px;
+      color: #ff4d6d;
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      opacity: 0.15;
+      z-index: -1;
+      white-space: pre-wrap;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 600px) {
+      body {
+        margin: 10px;
+      }
+      h1 {
+        font-size: 1.5em;
+      }
+      .button {
+        width: 80%;
+        font-size: 16px;
+        padding: 10px;
+      }
+      #message {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Will you be my Valentine, Bhagu?</h1>
+  <button class="button yes" id="yes">Yes 💖</button>
+  <button class="button no" id="no">No 💔</button>
+  
+  <div id="message">
+Every chapter of our story is written in my heart.  
+8 June – pahili baar, you in that blue flower top, the moment I first realized how beautiful life could be.  
+20 August – Eskon Mira, where the calmness of the temple matched the peace I felt standing beside you.  
+2 September – our first breakfast together, you in your black dress, and me secretly wishing that mornings like this would last forever.  
+26 September – Lalbaug, your yellow Kurti brighter than the lights, and I knew then that festivals are only complete with you.  
+24 October – our first movie, you in that blue dress with the chain, and me falling for you all over again.  
+
+I know that I fell for you on the very first day, since I saw you on the sofa when you came for joining.  
+When we talk, I get butterflies every time. When you look at me, I always get numb.  
+I always wanted to talk more and more with you.  
+
+I don’t know what happened to you, but I always wanted to be with you—laugh with you, travel with you, take rides with you, and do all those little things we shared in that short time of ours.  
+I always wanted you to be happy in your life, but I also wanted you to be with me every time I needed you.  
+
+With this YES, I am asking not just for Valentine's Day but you to stay forever in my life 🌹✨
+  </div>
+
+  <script>
+    const yesBtn = document.getElementById("yes");
+    const noBtn = document.getElementById("no");
+    const message = document.getElementById("message");
+
+    yesBtn.addEventListener("click", () => {
+      message.style.display = "block";
+    });
+
+    // No button runs away
+    noBtn.addEventListener("mouseover", () => {
+      noBtn.style.position = "absolute";
+      noBtn.style.top = Math.random() * window.innerHeight + "px";
+      noBtn.style.left = Math.random() * window.innerWidth + "px";
+    });
+  </script>
+</body>
+</html>
