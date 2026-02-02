@@ -9,6 +9,13 @@
       text-align: center;
       margin: 20px;
       background-color: #ffe6f0;
+      background-image: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 40px,
+        rgba(255, 192, 203, 0.2) 40px,
+        rgba(255, 192, 203, 0.2) 80px
+      );
     }
     h1 {
       color: #d6336c;
@@ -47,19 +54,34 @@
       line-height: 1.6;
     }
 
-    /* Confetti styling */
-    .confetti {
+    /* Add pink double heart emoji background */
+    body::before {
+      content: "💞 💞 💞 💞 💞 💞 💞 💞";
+      font-size: 40px;
+      color: #ff4d6d;
       position: fixed;
-      top: -10px;
-      font-size: 24px;
-      animation: fall 3s linear forwards;
-      z-index: 9999;
+      top: 10px;
+      left: 10px;
+      opacity: 0.15;
+      z-index: -1;
+      white-space: pre-wrap;
     }
 
-    @keyframes fall {
-      to {
-        transform: translateY(100vh) rotate(360deg);
-        opacity: 0;
+    /* Mobile responsiveness */
+    @media (max-width: 600px) {
+      body {
+        margin: 10px;
+      }
+      h1 {
+        font-size: 1.5em;
+      }
+      .button {
+        width: 80%;
+        font-size: 16px;
+        padding: 10px;
+      }
+      #message {
+        font-size: 16px;
       }
     }
   </style>
@@ -94,7 +116,6 @@ With this YES, I am asking not just for Valentine's Day but you to stay forever 
 
     yesBtn.addEventListener("click", () => {
       message.style.display = "block";
-      launchConfetti();
     });
 
     // No button runs away
@@ -103,22 +124,6 @@ With this YES, I am asking not just for Valentine's Day but you to stay forever 
       noBtn.style.top = Math.random() * window.innerHeight + "px";
       noBtn.style.left = Math.random() * window.innerWidth + "px";
     });
-
-    // Confetti function
-    function launchConfetti() {
-      const emojis = ["💖","💞","✨","🌹","💕"];
-      for (let i = 0; i < 30; i++) {
-        const confetti = document.createElement("div");
-        confetti.className = "confetti";
-        confetti.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-        confetti.style.left = Math.random() * window.innerWidth + "px";
-        document.body.appendChild(confetti);
-
-        setTimeout(() => {
-          confetti.remove();
-        }, 3000);
-      }
-    }
   </script>
 </body>
 </html>
