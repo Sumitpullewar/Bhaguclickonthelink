@@ -51,10 +51,9 @@
     .confetti {
       position: fixed;
       top: -10px;
-      font-size: 28px;
-      animation: fall 5s ease-in forwards;
+      font-size: 24px;
+      animation: fall 3s linear forwards;
       z-index: 9999;
-      opacity: 0.8;
     }
 
     @keyframes fall {
@@ -72,7 +71,20 @@
   
   <div id="message">
 Every chapter of our story is written in my heart.  
-... (your love message stays the same) ...
+8 June – pahili baar, you in that blue flower top, the moment I first realized how beautiful life could be.  
+20 August – Eskon Mira, where the calmness of the temple matched the peace I felt standing beside you.  
+2 September – our first breakfast together, you in your black dress, and me secretly wishing that mornings like this would last forever.  
+26 September – Lalbaug, your yellow Kurti brighter than the lights, and I knew then that festivals are only complete with you.  
+24 October – our first movie, you in that blue dress with the chain, and me falling for you all over again.  
+
+I know that I fell for you on the very first day, since I saw you on the sofa when you came for joining.  
+When we talk, I get butterflies every time. When you look at me, I always get numb.  
+I always wanted to talk more and more with you.  
+
+I don’t know what happened to you, but I always wanted to be with you—laugh with you, travel with you, take rides with you, and do all those little things we shared in that short time of ours.  
+I always wanted you to be happy in your life, but I also wanted you to be with me every time I needed you.  
+
+With this YES, I am asking not just for Valentine's Day but you to stay forever in my life whichever way possible 🌹✨
   </div>
 
   <script>
@@ -92,19 +104,19 @@ Every chapter of our story is written in my heart.
       noBtn.style.left = Math.random() * window.innerWidth + "px";
     });
 
-    // Confetti function (💞 only, slow and elegant)
+    // Confetti function
     function launchConfetti() {
-      for (let i = 0; i < 20; i++) {
+      const emojis = ["💖","💞","✨","🌹","💕"];
+      for (let i = 0; i < 30; i++) {
         const confetti = document.createElement("div");
         confetti.className = "confetti";
-        confetti.textContent = "💞";
+        confetti.textContent = emojis[Math.floor(Math.random() * emojis.length)];
         confetti.style.left = Math.random() * window.innerWidth + "px";
-        confetti.style.animationDuration = (3 + Math.random() * 3) + "s";
         document.body.appendChild(confetti);
 
         setTimeout(() => {
           confetti.remove();
-        }, 5000);
+        }, 3000);
       }
     }
   </script>
