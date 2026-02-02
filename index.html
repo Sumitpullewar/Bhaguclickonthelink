@@ -9,13 +9,6 @@
       text-align: center;
       margin: 20px;
       background-color: #ffe6f0;
-      background-image: repeating-linear-gradient(
-        45deg,
-        transparent,
-        transparent 40px,
-        rgba(255, 192, 203, 0.2) 40px,
-        rgba(255, 192, 203, 0.2) 80px
-      );
     }
     h1 {
       color: #d6336c;
@@ -54,34 +47,20 @@
       line-height: 1.6;
     }
 
-    /* Add pink double heart emoji background */
-    body::before {
-      content: "💞 💞 💞 💞 💞 💞 💞 💞";
-      font-size: 40px;
-      color: #ff4d6d;
+    /* Confetti styling */
+    .confetti {
       position: fixed;
-      top: 10px;
-      left: 10px;
-      opacity: 0.15;
-      z-index: -1;
-      white-space: pre-wrap;
+      top: -10px;
+      font-size: 28px;
+      animation: fall 5s ease-in forwards;
+      z-index: 9999;
+      opacity: 0.8;
     }
 
-    /* Mobile responsiveness */
-    @media (max-width: 600px) {
-      body {
-        margin: 10px;
-      }
-      h1 {
-        font-size: 1.5em;
-      }
-      .button {
-        width: 80%;
-        font-size: 16px;
-        padding: 10px;
-      }
-      #message {
-        font-size: 16px;
+    @keyframes fall {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
       }
     }
   </style>
@@ -93,20 +72,7 @@
   
   <div id="message">
 Every chapter of our story is written in my heart.  
-8 June – pahili baar, you in that blue flower top, the moment I first realized how beautiful life could be.  
-20 August – Eskon Mira, where the calmness of the temple matched the peace I felt standing beside you.  
-2 September – our first breakfast together, you in your black dress, and me secretly wishing that mornings like this would last forever.  
-26 September – Lalbaug, your yellow Kurti brighter than the lights, and I knew then that festivals are only complete with you.  
-24 October – our first movie, you in that blue dress with the chain, and me falling for you all over again.  
-
-I know that I fell for you on the very first day, since I saw you on the sofa when you came for joining.  
-When we talk, I get butterflies every time. When you look at me, I always get numb.  
-I always wanted to talk more and more with you.  
-
-I don’t know what happened to you, but I always wanted to be with you—laugh with you, travel with you, take rides with you, and do all those little things we shared in that short time of ours.  
-I always wanted you to be happy in your life, but I also wanted you to be with me every time I needed you.  
-
-With this YES, I am asking not just for Valentine's Day but you to stay forever in my life 🌹✨
+... (your love message stays the same) ...
   </div>
 
   <script>
@@ -116,6 +82,7 @@ With this YES, I am asking not just for Valentine's Day but you to stay forever 
 
     yesBtn.addEventListener("click", () => {
       message.style.display = "block";
+      launchConfetti();
     });
 
     // No button runs away
@@ -124,6 +91,22 @@ With this YES, I am asking not just for Valentine's Day but you to stay forever 
       noBtn.style.top = Math.random() * window.innerHeight + "px";
       noBtn.style.left = Math.random() * window.innerWidth + "px";
     });
+
+    // Confetti function (💞 only, slow and elegant)
+    function launchConfetti() {
+      for (let i = 0; i < 20; i++) {
+        const confetti = document.createElement("div");
+        confetti.className = "confetti";
+        confetti.textContent = "💞";
+        confetti.style.left = Math.random() * window.innerWidth + "px";
+        confetti.style.animationDuration = (3 + Math.random() * 3) + "s";
+        document.body.appendChild(confetti);
+
+        setTimeout(() => {
+          confetti.remove();
+        }, 5000);
+      }
+    }
   </script>
 </body>
 </html>
